@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+    <div class="form-content my-3 p-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow-lg border-0 rounded-lg mt-0 mb-5">
+                        <div class="card-header justify-content-center">
+                            <h3 class="font-weight-light my-4 text-center">Edit Profile</h3>
+                        </div>
+                        <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="small mb-1">First Name:</label>
+                            {{ profile_form.first_name }}
+                        <label class="small mb-1">Last Name:</label>
+                            {{ profile_form.last_name }}
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="small mb-1">Previous Address:</label>
+                            {{ profile_form.past_address}}
+                            <label class="small mb-1">Current Address:</label>
+                            {{ profile_form.current_address}}
+                        </div>
+                    </div>
+                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
+                </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+            <button type="reset" class="btn btn-dark btn-lg">Undo Changes</button>
+        </form>
+    </div>
+        </div>
+            </div>
+                 </div>
+                        </div>
+                            </div>
+
+{% endblock content %}
